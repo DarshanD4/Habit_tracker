@@ -1,15 +1,17 @@
 import { Tabs } from "expo-router";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import React from "react";
-export default function tabsLayout() {
+import { StyleSheet } from "react-native";
+
+export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
         headerStyle: { backgroundColor: "#f5f5f5" },
+        headerTitleAlign: "center", // ✅ Center all headings
         tabBarStyle: {
           backgroundColor: "#f5f5f5",
-          borderWidth: 0,
+          borderTopWidth: 0,
           elevation: 0,
           shadowOpacity: 0,
         },
@@ -31,6 +33,7 @@ export default function tabsLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="streaks"
         options={{
@@ -44,21 +47,37 @@ export default function tabsLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="add-habit"
         options={{
           title: "Add Habit",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
-              name="plus"
-              size={size}
+              name="plus-circle"
+              size={size + 6} // slightly bigger for emphasis
               color={color}
+              style={styles.addHabit}
             />
           ),
         }}
       />
 
-      <Tabs.Screen name="Login" options={{ title: "Login" }} />
+      <Tabs.Screen
+        name="Login"
+        options={{
+          title: "Login",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="login" size={size} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  addHabit: {
+    marginBottom: -4, // push up slightly for floating look
+  },
+});
