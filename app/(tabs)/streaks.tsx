@@ -1,6 +1,8 @@
-import { View, Text, StyleSheet} from "react-native"
+import React from "react"
+import { View, Text, StyleSheet } from "react-native"
 
-export default function LoginScreen() {
+
+export default function StreaksScreen() {
     return (
         <View style ={styles.view}>
         <Text>This is the login screen</Text>

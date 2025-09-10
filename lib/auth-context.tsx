@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Models ,ID} from "react-native-appwrite";
-import { account } from "./appwrite";
+import { account } from "./appwrite"
+import React from "react";
+
 
 type AuthContextType = {
     user: Models.User<Models.Preferences> | null;
